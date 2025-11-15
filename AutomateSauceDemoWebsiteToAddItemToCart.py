@@ -4,9 +4,10 @@ GitHub : https://github.com/sarkar-ai-26
 Created on Nov 15, 2025
 
 Activity:
-
-Locating items using diffrent functions:
-ByID, ByName, ByClassName, ByXPath
+Automate:
+    1. Login Page
+    2. Add Item to Cart
+    3. Close browser
 
 '''
 
@@ -34,12 +35,6 @@ username.send_keys("standard_user")
 #enter password
 password.send_keys("secret_sauce")
 
-#Find element and click Submit using By.ID
-# submit_button = driver.find_element(By.ID, value = "login-button")
-
-#Find element and click Submit using By.Xpath
-# submit_button = driver.find_element(By.XPATH, value = "//input[@id='login-button']")
-
 #Find element by By.CLASS_NAME
 submit_button = driver.find_element(By.CLASS_NAME, value = "btn_action")
 
@@ -48,16 +43,11 @@ submit_button.click()
 #find element by link text
 product = driver.find_element(By.LINK_TEXT, value="Sauce Labs Backpack")
 
-#find element by partial link text
-# product = driver.find_element(By.PARTIAL_LINK_TEXT, value="Backpack")
 product.click()
 time.sleep(1)
 
 #find element for addtocart with any locator
 add_to_cart = driver.find_element(By.ID,value="add-to-cart")
-
-#find element for add_to_cart with tagName
-# add_to_cart = driver.find_element(By.TAG_NAME,value="button")
 
 add_to_cart.click()
 
