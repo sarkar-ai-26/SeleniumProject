@@ -29,21 +29,27 @@ youtube_url = "https://www.youtube.com"
 
 #Navigate to Google
 driver.get(google_url)
+time.sleep(3)
+
 #Navigate to youtube
 driver.get(youtube_url)
+time.sleep(3)
+
 #go back to Google
 driver.back()
+
 #go forward to YouTube
 driver.forward()
+
 #Refresh the current page (Youtube)
 driver.refresh()
+time.sleep(3)
+
 #Navigate to Google
 driver.back()
+time.sleep(3)
+
 #Close the brower
 driver.quit()
 #done
 
-
-
-#close browser
-driver.quit()
