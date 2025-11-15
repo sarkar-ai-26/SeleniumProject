@@ -1,5 +1,5 @@
 '''
-Author : Yash Rajesh
+Author : Yash Raj
 GitHub : https://github.com/sarkar-ai-26
 Created on Nov 14, 2025
 

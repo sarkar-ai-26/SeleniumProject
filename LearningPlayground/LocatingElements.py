@@ -1,5 +1,5 @@
 '''
-Author : Yash Rajesh
+Author : Yash Raj
 GitHub : https://github.com/sarkar-ai-26
 Created on Nov 15, 2025
 
@@ -36,9 +36,11 @@ time.sleep(3)
 password.send_keys("secret_sauce")
 time.sleep(3)
 
-#Find element and click Submit using By.Xpath
+#Find element and click Submit using By.ID
 # submit_button = driver.find_element(By.ID, value = "login-button")
-submit_button = driver.find_element(By.XPATH, value = "login-button")
+
+#Find element and click Submit using By.Xpath
+submit_button = driver.find_element(By.XPATH, value = "//input[@id='login-button']")
 submit_button.click()
 time.sleep(5)
 
