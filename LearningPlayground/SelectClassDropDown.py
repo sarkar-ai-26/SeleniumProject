@@ -45,5 +45,41 @@ def singleSelect_dp(option):
     driver.close()
 
 
-option = "Mercedes"
-singleSelect_dp(option)
+def MultiSelect_dp():
+    driver.get("https://dmytro-ch21.github.io/html/web-elements.html")
+    time.sleep(3)
+
+    m_dropdown = driver.find_element(By.ID, "multiSelect")
+
+    driver.execute_script("arguments[0].scrollIntoView(true);", m_dropdown)
+    time.sleep(3)
+    select = Select(m_dropdown)
+
+    select.select_by_visible_text("Mercedes")
+    select.select_by_visible_text("Saab")
+    select.select_by_visible_text("Audi")
+
+    #deselect the item
+    select.deselect_by_visible_text("Mercedes")
+
+    select.deselect_all()
+
+    # select.select_by_index(0)
+    # select.select_by_visible_text(option)
+
+    # list_options = select.options
+    # print(len(list_options))
+    # for item in list_options:
+    #     print(item.text)
+    #     if item.text == option:
+    #         item.click()
+    #         break
+
+    time.sleep(5)
+
+    driver.close()
+
+
+# option = "Mercedes"
+# singleSelect_dp(option)
+MultiSelect_dp()
