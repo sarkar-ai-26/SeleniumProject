@@ -12,6 +12,7 @@ Learning waits
 
 
 from selenium import webdriver
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -65,7 +66,7 @@ def ExplicitWait():
     driver.get("https://www.saucedemo.com")
 
     #for explicit wait , creating object of wait with threashold of 10 sec
-    wait = WebDriverWait(driver,10)
+    wait = WebDriverWait(driver,10, ignored_exceptions= [NoSuchElementException,TimeoutError,Exception])
 
     # Locate username using by.ID using explicit wait
 
@@ -73,6 +74,7 @@ def ExplicitWait():
 
     # Locate password using by.Name using explicit wait
     password = wait.until(EC.presence_of_element_located((By.ID,"password")))
+    # password = wait.until(EC.((By.ID,"password")))
     # enter username
     username.send_keys("standard_user")
     # enter password
