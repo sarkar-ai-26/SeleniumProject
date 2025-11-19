@@ -69,3 +69,5 @@ time.sleep(5)
 
 #close browser
 driver.quit()
+
+print("fffff")
