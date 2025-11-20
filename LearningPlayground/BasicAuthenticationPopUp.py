@@ -32,7 +32,7 @@ def basicAuth(username,password):
     time.sleep(2)
     driver.close()
 
-username = "admin"
+username = "admin" 
 password = "admin"
 basicAuth(username,password)
 
