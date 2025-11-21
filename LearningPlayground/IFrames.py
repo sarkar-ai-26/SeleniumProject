@@ -51,8 +51,13 @@ def iFrame():
     print("Switch to default content frame")
 
     #swithc to right frame
-    driver.switch_to.frame("rightFrame")
+    # driver.switch_to.frame("rightFrame")
+
+    #Switching via element
+    rightframe = driver.find_element(By.XPATH, "//iframe[@name='rightFrame']")
+    driver.switch_to.frame(rightframe)
     print("Switched to Right frame")
+
 
     click_me = wait.until(EC.presence_of_element_located((By.XPATH,"//button[contains(text(),'Click Me')]")))
     click_me.click()
@@ -84,4 +89,58 @@ def iFrame():
 
     driver.close()
 
-iFrame()
+def nestedFrame():
+
+    driver.get("file:///C:/YashAssets/PythonProjects/Selenium/SeleniumProject/iframePracticeSite/nested-frame.html")
+
+    driver.switch_to.frame("parentFrame")
+
+    p_t = driver.find_element(By.TAG_NAME,"h3").text
+    p_tt = driver.find_element(By.TAG_NAME, "p").text
+    print(p_t)
+    print(p_tt)
+
+    time.sleep(3)
+
+    driver.switch_to.frame("childFrame")
+    c_t = driver.find_element(By.TAG_NAME, "h4").text
+    c_tt = driver.find_element(By.TAG_NAME, "p").text
+    print(c_t)
+    print(c_tt)
+
+
+def ExplicitWaitiFrame():
+
+    driver.get("file:///C:/YashAssets/PythonProjects/Selenium/SeleniumProject/iframePracticeSite/nested-frame.html")
+    wait = WebDriverWait(driver,10)
+    p_frames = driver.find_elements(By.NAME,"parentFrame")
+    #check if frame is not empty
+    if p_frames:
+        try:
+            # driver.switch_to.frame("parentFrame")
+            wait.until(EC.frame_to_be_available_and_switch_to_it
+                       ((By.NAME, "parentFrame")))
+            p_t = driver.find_element(By.TAG_NAME, "h3").text
+            p_tt = driver.find_element(By.TAG_NAME, "p").text
+            print(p_t)
+            print(p_tt)
+
+            # driver.switch_to.frame("childFrame")
+            wait.until(EC.frame_to_be_available_and_switch_to_it((By.NAME,"childFrame")))
+            c_t = driver.find_element(By.TAG_NAME, "h4").text
+            c_tt = driver.find_element(By.TAG_NAME, "p").text
+            print(c_t)
+            print(c_tt)
+
+        except Exception as e:
+            print("Frame error : ", e)
+    else:
+        print("Parent frame is empty")
+
+
+
+    time.sleep(3)
+
+
+# iFrame()
+# nestedFrame()
