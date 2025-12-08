@@ -36,7 +36,7 @@ def takeScreenshot():
 
     #element screenshot
     element_path = folder + "//elementfile.png"
-    button1 = driver.find_element(By.XPATH, "(//button)[1]")
+    button1 = driver.find_element(By.XPATH, "(//div[@id='main-navbar']/ul/li)[2]")
     time.sleep(3)
     button1.screenshot(element_path)
     driver.close()
